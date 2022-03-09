@@ -35,8 +35,8 @@ class BattleshipBoard:
         self.grid = [[HIDDEN] * size_x for _ in range(size_y)]
 
         # place a random ship on the grid
-        ship_row = random.randint(0, size_x - 1)
-        ship_col = random.randint(0, size_y - 1)
+        ship_row = random.randint(0, size_y - 1)
+        ship_col = random.randint(0, size_x - 1)
         self.grid[ship_row][ship_col] = SHIP
 
     def is_ship(self, row: int, col: int) -> bool:
@@ -62,8 +62,8 @@ def read_guess(already_guessed: Callable[[int, int], bool]) -> tuple[int, int]:
 
     while True:
         # read the row and column
-        guess_row = read_int("Guess row: ", max_value=BOARD_SIZE_X) - 1
-        guess_col = read_int("Guess column: ", max_value=BOARD_SIZE_Y) - 1
+        guess_row = read_int("Guess row: ", max_value=BOARD_SIZE_Y) - 1
+        guess_col = read_int("Guess column: ", max_value=BOARD_SIZE_X) - 1
 
         # if the guess is valid, return the guessed row and column
         if not already_guessed(guess_row, guess_col):
